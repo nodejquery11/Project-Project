@@ -38,3 +38,10 @@ Step 2.https://newsource.accenture.com/projects/A563/repos/crowdsourcing-platfor
 
 Step 3.https://liquidworkforce-test.accenture.com/
 
+Date: 14/10/2016 ========================
+> How to find list of table name using column name
+* MySQL:
+SELECT DISTINCT TABLE_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS
+WHERE COLUMN_NAME LIKE '%name%' AND TABLE_SCHEMA='drupalapp';
+
+

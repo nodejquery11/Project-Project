@@ -1,1 +1,29 @@
 pseudo variable $this is use to call the method or object within object context. $this is the reference object. 
+
+
+The below code is based on the bubble shot. 
+
+<?php
+
+$inputArr = array("84", "69", "76", "86", " 94", "91");
+
+$displayVal = bubbleShot($inputArr);
+print_r($displayVal);
+
+function bubbleShot($arg){
+  $flag = 1;
+  $len = count($arg);
+  for($i=0; $i< $len && $flag; $i++){
+    $flag = 0;
+    // $temp = 0;
+    for($j=0; $j < $len-1; $j++){
+      if($arg[$j+1]>$arg[$j]){
+        $temp = $arg[$j+1];
+        $arg[$j+1] = $arg[$j];
+        $arg[$j] = $temp;
+        $flag = 1;
+      }
+    }
+  }
+  return $arg;
+}

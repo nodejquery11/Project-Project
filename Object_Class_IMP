@@ -27,3 +27,25 @@ function bubbleShot($arg){
   }
   return $arg;
 }
+
+The below code for exchange sort (descending sort)
+
+<?php
+
+function exchangesort(array $arg){
+ $arrLen = count($arg);
+ for($i=0; $i<$arrLen -1; $i++){
+   for($j=$i+1; $j<$arrLen; $j++){
+      if($arg[$i] < $arg[$j]){
+      $temp = $arg[$i];
+      $arg[$i] = $arg[$j];
+      $arg[$j] = $temp;
+     }
+   }
+  }
+  return $arg;
+ }
+
+$arr = array(6, 4, 7, 9, 1, 5);
+$sort = exchangesort($arr);
+print_r($sort);

@@ -46,6 +46,52 @@ function exchangesort(array $arg){
   return $arg;
  }
 
+======================================== Date::26/nov/2016 (Contest)
 $arr = array(6, 4, 7, 9, 1, 5);
 $sort = exchangesort($arr);
 print_r($sort);
+
+$arrayKey = array('name');
+$arrayValue = array('vikas','shrisha','shilpa','bindu','senthil');
+$createValue = implode($arrayValue, ",");
+$createKey = implode($arrayKey, ",");
+
+function insertIntoDb($table_name=NULL, $array_fileds=NULL, $arrayValues=NULL){
+  $sqlInsert = 'insert into '.$table_name.' ';
+	  if($array_fileds == NULL){
+	  	$sqlInsert .= 'values '.$createImplode.' ';
+	  }else{
+	  	$sqlInsert .= $createKey.' values '.$createImplode.' ';
+	  }
+  $sqlquery = mysqli_query($conn, $sqlInsert);
+  if($sqlquery)
+    return 1;
+}
+
+
+// your code goes here
+$arrayKey = array('name');
+$arrayValue = array('vikas','shrisha','shilpa','bindu','senthil');
+$createValue = implode($arrayValue, ",");
+$createKey = implode($arrayKey, ",");
+$condition = '';
+
+function updateIntoDb($table_name=NULL, $array_fileds_multi=NULL, $arrayValues=NULL, $condition=NULL){
+  $arrayCombine = array_combine($arrayKey, $arrayValue);
+  $sqlUpdate = 'update '.$table_name.' set ';
+	  if($array_fileds_multi == 1){
+	  	$sqlUpdate .= $array_fileds_multi.' = '.$createImplode.' ';
+	  }else if($array_fileds_multi > 1){
+	  	foreach($arrayCombine as $key => $val){
+	  		$sqlUpdate .= $key.' = '.$val.', ';
+	  		 if(count($arrayCombine)){
+	  		 	
+	  		 }
+	  	}
+	  }
+  $sqlquery = mysqli_query($conn, $sqlUpdate);
+  if($sqlquery)
+    return 1;
+}
+
+print_r($createImplode);
